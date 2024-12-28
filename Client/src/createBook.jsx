@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 function CreateBook(){
     let [bookData, setBookData] = useState({
         title: "",
@@ -16,7 +16,7 @@ function CreateBook(){
         e.preventDefault();
 
         try{
-            let response = await axois.post("http://localhost:3000/books", bookData);
+            let response = await axios.post("http://localhost:3000/books", bookData);
             alert(response.data.message);
         }
         catch(error){
@@ -29,14 +29,18 @@ function CreateBook(){
         <div>
             <form action="">
                 <div>
-                    <input type="text" id="title" name="title" value={bookData.title} placeholder="Enter Title"/>
+                    <input type="text" id="title" name="title" value={bookData.title} onChange={handleChange} placeholder="Enter Title"/>
                 </div>
                 <div>
-                    <input type="text" id="author" name="author" value={bookData.author} placeholder="Enter Author's Name"/>
+                    <input type="text" id="author" name="author" value={bookData.author} onChange={handleChange} placeholder="Enter Author's Name"/>
                 </div>
                 <div>
-                    <input type="text" id="publishYear" name="publishYear" value={bookData.publishYear}/>
+                    <input type="text" id="publishYear" name="publishYear" onChange={handleChange} value={bookData.publishYear}/>
                 </div>
+                <div>
+                    <button type="submit" onClick={handleSubmit}>Submit</button>
+                </div>
+                
             </form>
         </div>
     )

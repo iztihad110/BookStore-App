@@ -1,11 +1,13 @@
-import CreateBook from "./createBook.jsx";
-import React from "react";
+
+
+import { BrowserRouter as Router } from "react-router-dom";
+import RouterComponent from "./Routes.jsx";
 function App(){
 
     return (
-        <div>
-            <CreateBook/>
-        </div>
+        <Router>
+            <RouterComponent/>
+        </Router>
     )
 }
 
