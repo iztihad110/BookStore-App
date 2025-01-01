@@ -52,7 +52,7 @@ route.put('/:id', async (req, res)=>{
 
 route.delete('/:id', async (req, res)=>{
     try{
-        let book = await books.findByIdAndDelete(req.params.id, req.body);
+        let book = await books.findByIdAndDelete(req.params.id);
         res.status(200).send("Data deleted successfully");
     }
     catch(error){

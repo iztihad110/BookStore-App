@@ -1,48 +1,56 @@
-
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import {useNavigate} from "react-router-dom";
 
 function HomePage(){
-    let navigate = useNavigate();
 
-    let [bookData, setBookData] = useState([]);
+   let [bookData, setBookData] = useState([]);
+   let navigate = useNavigate();
 
-    let handleClick = (link)=>{
-        navigate(link);
-    }
+   let handleNavigation = (link)=>{
+      navigate(link);
+   }
 
-    useEffect(()=>{
+   let handleDelete = async (id)=>{
+      try{
+         let response = await axios.delete(`http://localhost:3000/books/${id}`);
+         let newbookData = bookData.filter((item)=> item._id!=id);
+         setBookData(newbookData);
+         
+      }
+      catch(error){
+         alert(error.message);
+      }
+   }
 
-        let fetchData = async ()=>{
-            try{
-                let response = await axios.get("http://localhost:3000/books");
-                setBookData(response.data);
+   useEffect(()=>{
+      let fetchData = async ()=>{
+         try{
+            let response = await axios.get("http://localhost:3000/books");
+            setBookData(response.data);
+         }
+         catch(error){
+            alert(error.message);
+         }
+      }
 
+      fetchData();
+   }, [])
+
+   return (
+      <div>
+         
+            {
+               bookData.map((item)=>{
+                  return <div>
+                     <span>{item.title}</span>
+                     <button type="button" onClick={()=>handleDelete(item._id)}>Delete Book</button>
+                  </div>
+               })
             }
-            catch(error){
-                alert(error.message);
-            }
-
-            
-        }
-
-        fetchData();
-
-    }, [])
-
-    return (
-        <div>
-            <ul>
-                {
-                    bookData.map((item)=>{
-                       return <li key={item.id}>{item.title}</li>
-                    })
-                }
-            </ul>
-            <button type="button" onClick={()=> handleClick("/create-book")}>Add Book</button>
-            <button type="button" onClick={()=> handleClick("/delete-book")}>Delete Book</button>
-        </div>
-    )
+            <button type="button" onClick={()=>{handleNavigation("/create-book")}}>Add Book</button>
+         
+      </div>
+   )
 }
 export default HomePage;
