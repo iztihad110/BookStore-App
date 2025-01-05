@@ -8,7 +8,7 @@ function RouterComponent(){
         <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/create-book" element={<CreateBook/>} />
-            <Route path="/delete-book" element={<DeleteBook/>}></Route>
+            <Route path="/delete-book/:id" element={<DeleteBook/>}></Route>
         </Routes>
     )
 }

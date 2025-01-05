@@ -1,17 +1,21 @@
 import axios from "axios";
+import {  useNavigate, useParams } from "react-router-dom";
 function DeleteBook(){
-
-
+    let {id} = useParams();
+    let navigate= useNavigate();
     let handleClick = async (e)=>{
         e.preventDefault();
 
         try{
-            let response = await axios.delete("http://localhost:3000/books");
+            let response = await axios.delete(`http://localhost:3000/books/${id}`).then(()=>{navigate("/")});
+                                    
             alert(response.data.message);
         }
         catch(error){
             alert(error.message);
         }
+
+        
     }
 
     return (

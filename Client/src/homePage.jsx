@@ -5,22 +5,31 @@ import {useNavigate} from "react-router-dom";
 function HomePage(){
 
    let [bookData, setBookData] = useState([]);
+   let [delId, setDelId] = useState();
    let navigate = useNavigate();
 
+   let handleDelete = (Id)=>{
+      setDelId(Id);
+   }
    let handleNavigation = (link)=>{
       navigate(link);
    }
 
-   let handleDelete = async (id)=>{
-      try{
-         let response = await axios.delete(`http://localhost:3000/books/${id}`);
-         let newbookData = bookData.filter((item)=> item._id!=id);
-         setBookData(newbookData);
+   // let handleDelete = async (id)=>{
+   //    try{
+   //       let response = await axios.delete(`http://localhost:3000/books/${id}`);
+   //       let newbookData = bookData.filter((item)=> item._id!=id);
+   //       setBookData(newbookData);
          
-      }
-      catch(error){
-         alert(error.message);
-      }
+   //    }
+   //    catch(error){
+   //       alert(error.message);
+   //    }
+   // }
+
+   let handleClick = (link, id)=>{
+      //handleDelete(id);
+      handleNavigation(link);
    }
 
    useEffect(()=>{
@@ -44,7 +53,7 @@ function HomePage(){
                bookData.map((item)=>{
                   return <div>
                      <span>{item.title}</span>
-                     <button type="button" onClick={()=>handleDelete(item._id)}>Delete Book</button>
+                     <button type="button" onClick={()=>handleClick(`/delete-book/${item._id}`)}>Delete Book</button>
                   </div>
                })
             }
