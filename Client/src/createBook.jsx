@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function CreateBook(){
     let [bookData, setBookData] = useState({
         title: "",
         author: "",
         publishYear: ""
     })
+
+    let navigate = useNavigate();
 
     let handleChange = (e) =>{
         let {name, value} = e.target;
@@ -16,8 +19,10 @@ function CreateBook(){
         e.preventDefault();
 
         try{
-            let response = await axios.post("http://localhost:3000/books", bookData);
-            alert(response.data.message);
+            let response = await axios.post("http://localhost:3000/books", bookData).then(()=>{
+                navigate('/');
+            });
+            
         }
         catch(error){
             
