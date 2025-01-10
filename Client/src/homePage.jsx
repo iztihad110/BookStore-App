@@ -33,20 +33,27 @@ function HomePage(){
    }, [])
 
    return (
-      <div>
-         
-            {
-               bookData.map((item)=>{
-                  return <div>
-                     <span>{item.title}</span>
-                     <button type="button" onClick={()=>handleClick(`/delete-book/${item._id}`)}>Delete Book</button>
-                     <button type="button" onClick={()=>handleClick(`/edit-book/${item._id}`)}>Edit Book</button>
-                  </div>
-               })
-            }
-            <button type="button" onClick={()=>{handleNavigation("/create-book")}}>Add Book</button>
-         
+      <div className="d-flex justify-content-center d-flex mt-5">
+         <div className="book-list card"> 
+            <div className="card-head mb-3 d-flex justify-content-center" ><h2>List of Books</h2></div>
+            <div className="card-body">
+               {
+                  bookData.map((item)=>{
+                     return <div className="mb-3">
+                        <span className="me-3">{item.title}</span>
+                        <button className="me-3" type="button" onClick={()=>handleClick(`/delete-book/${item._id}`)}>Delete Book</button>
+                        <button type="button" onClick={()=>handleClick(`/edit-book/${item._id}`)}>Edit Book</button>
+                     </div>
+                  })
+               }
+               
+               <svg className="add-book" onClick={()=>{handleNavigation("/create-book")}} xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 112v288M400 256H112"/></svg>
+              
+            </div>
+            
+         </div>
       </div>
+      
    )
 }
 export default HomePage;

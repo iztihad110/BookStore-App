@@ -1,0 +1,6 @@
+svg{
+    scale: 0.2;
+}
+svg:hover{
+    color: red;
+}
