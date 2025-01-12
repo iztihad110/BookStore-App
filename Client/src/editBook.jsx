@@ -42,21 +42,27 @@ function EditBook(){
     }
 
     return (
-        <div>
-           <form action="">
-                <div>
-                    <input type="text" placeholder="Edit Title" id="title" name="title" value={bookData.title} onChange={handleChange}/>
+        
+        <div className="d-flex justify-content-center edit-box">
+            <div className="card edit_book_info">
+                <div className="card-header edit_book_header d-flex justify-content-center"><h2>Edit Book</h2></div>
+                <div className="row">
+                    <form action="">
+                        <div className="mb-3 mt-3 ms-3 me-3">
+                            <input type="text" className="form-control" placeholder="Edit Title" id="title" name="title" value={bookData.title} onChange={handleChange}/>
+                        </div>
+                        <div className="mb-3 mt-3 ms-3 me-3">
+                            <input type="text" className="form-control" placeholder="Edit Author" id="author" name="author" value={bookData.author} onChange={handleChange}/>
+                        </div>
+                        <div className="mb-3 mt-3 ms-3 me-3">
+                            <input type="text" className="form-control" placeholder="Edit PublishYear" id="publishYear" name="publishYear" value={bookData.publishYear} onChange={handleChange}/>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <button type="button" className="btn btn-warning" onClick={handleSubmit}>Update</button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <input type="text" placeholder="Edit Author" id="author" name="author" value={bookData.author} onChange={handleChange}/>
-                </div>
-                <div>
-                    <input type="text" placeholder="Edit PublishYear" id="publishYear" name="publishYear" value={bookData.publishYear} onChange={handleChange}/>
-                </div>
-                <div>
-                    <button type="button" onClick={handleSubmit}>Update</button>
-                </div>
-           </form>
+            </div>
         </div>
     )
 

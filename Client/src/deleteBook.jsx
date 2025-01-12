@@ -9,7 +9,7 @@ function DeleteBook(){
         try{
             let response = await axios.delete(`http://localhost:3000/books/${id}`).then(()=>{navigate("/")});
                                     
-            alert(response.data.message);
+            //alert(response.data.message);
         }
         catch(error){
             alert(error.message);
@@ -19,9 +19,10 @@ function DeleteBook(){
     }
 
     return (
-        <div>
+        <div className="delete-box d-flex">
             <form action="">
-                <button type="button" onClick={handleClick}>Click Here to Confirm the Delete</button>
+                <h3 className="mb-4">Are You Sure About This?</h3>
+                <button  type="button" className="btn btn-danger" onClick={handleClick}>Click Here to Confirm the Delete</button>
             </form>
         </div>
     )

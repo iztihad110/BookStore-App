@@ -33,7 +33,7 @@ function CreateBook(){
     return (
         <div className="d-flex justify-content-center">
             <div className="card create-book-field">
-                <div className="card-header d-flex justify-content-center create-book-header"><h2>Add Book</h2></div>
+                <div className="card-header add_book_header d-flex justify-content-center create-book-header"><h2>Add Book</h2></div>
                 <div className="form">
                     <form action="">
                         <div className="p-4">
@@ -46,7 +46,7 @@ function CreateBook(){
                             <input type="text" className="form-control" id="publishYear" name="publishYear" onChange={handleChange} value={bookData.publishYear} placeholder="Enter Publish Year"/>
                         </div>
                         <div className="d-flex justify-content-center">
-                            <button type="submit" className="btn btn-primary mt-4 mb-4" onClick={handleSubmit}>Submit</button>
+                            <button type="submit" className="btn btn-success mt-4 mb-4" onClick={handleSubmit}>Submit</button>
                         </div>
                         
                     </form>

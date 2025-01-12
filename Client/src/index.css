@@ -1,27 +1,30 @@
-
 .book-list{
     width: 500px;
     height: 60%;
-    padding: 0 2%;
     
-   
+   color: #f1f3f5;
 }
+
+
 svg{
     width: 50%;
     height: 50%;
 }
-.add-book-button{
+.add-book{
     width: 30%;
     height: 30%;
+    color: #96f2d7;
 }
-svg:hover{
-    color: red;
+
+
+.add-book:hover{
+    color: #0ca678 !important;
 }
 .book-title{
     font-size: 120%;
 }
 .single-book{
-    background-color: cyan;
+    background-color: #7048e8;
     border-radius: 40px;
     font-weight: 700;
     padding-top: 1%;
@@ -30,19 +33,61 @@ svg:hover{
     
 }
 .card-head{
-    background-color: red;
+    background-color: #845ef7;
+    border-radius: 20px 20px 0 0;
     
 }
-.list-box{
-    border-radius: 50px;
-}
+
 .create-book-field{
     width: 50%;
     margin-top: 10%;
     
 }
-.create-book-header{
-    background-color: red;
+
+.book-list{
+    border-radius: 20px !important;
+}
+h2{
+    color: #343a40;
+}
+.delete-book{
+    scale: 3.5;
 }
 
+.delete-book:hover{
+    color: red;
+}
+.edit-book{
+    scale: 3.5;
+}
+.edit-book:hover{
+    color: #fcc419; 
+}
+.delete-box{
+    width: 50%;
+    height: 200px;
+    background-color: #f03e3e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+    
+}
+
+.add_book_header{
+    background-color: #37b24d !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+.edit_book_header{
+    background-color: #fcc419 !important;
+    border-radius: 20px 20px 0 0  !important;
+}
+.create-book-field{
+    border-radius: 20px !important;
+}
+.edit_book_info{
+    width: 500px;
+    margin-top: 100px;
+    border-radius: 20px !important;
+}
 
