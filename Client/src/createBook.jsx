@@ -31,22 +31,27 @@ function CreateBook(){
     }
 
     return (
-        <div>
-            <form action="">
-                <div>
-                    <input type="text" id="title" name="title" value={bookData.title} onChange={handleChange} placeholder="Enter Title"/>
+        <div className="d-flex justify-content-center">
+            <div className="card create-book-field">
+                <div className="card-header d-flex justify-content-center create-book-header"><h2>Add Book</h2></div>
+                <div className="form">
+                    <form action="">
+                        <div className="p-4">
+                            <input className="form-control" type="text" id="title" name="title" value={bookData.title} onChange={handleChange} placeholder="Enter Title"/>
+                        </div>
+                        <div className="ps-4 pe-4">
+                            <input className="form-control" type="text" id="author" name="author" value={bookData.author} onChange={handleChange} placeholder="Enter Author's Name"/>
+                        </div>
+                        <div className="p-4">
+                            <input type="text" className="form-control" id="publishYear" name="publishYear" onChange={handleChange} value={bookData.publishYear} placeholder="Enter Publish Year"/>
+                        </div>
+                        <div className="d-flex justify-content-center">
+                            <button type="submit" className="btn btn-primary mt-4 mb-4" onClick={handleSubmit}>Submit</button>
+                        </div>
+                        
+                    </form>
                 </div>
-                <div>
-                    <input type="text" id="author" name="author" value={bookData.author} onChange={handleChange} placeholder="Enter Author's Name"/>
-                </div>
-                <div>
-                    <input type="text" id="publishYear" name="publishYear" onChange={handleChange} value={bookData.publishYear}/>
-                </div>
-                <div>
-                    <button type="submit" onClick={handleSubmit}>Submit</button>
-                </div>
-                
-            </form>
+            </div>
         </div>
     )
 };

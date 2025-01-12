@@ -1,6 +1,48 @@
+
+.book-list{
+    width: 500px;
+    height: 60%;
+    padding: 0 2%;
+    
+   
+}
 svg{
-    scale: 0.2;
+    width: 50%;
+    height: 50%;
+}
+.add-book-button{
+    width: 30%;
+    height: 30%;
 }
 svg:hover{
     color: red;
 }
+.book-title{
+    font-size: 120%;
+}
+.single-book{
+    background-color: cyan;
+    border-radius: 40px;
+    font-weight: 700;
+    padding-top: 1%;
+    padding-bottom: 0%;
+    padding-left: 1%;
+    
+}
+.card-head{
+    background-color: red;
+    
+}
+.list-box{
+    border-radius: 50px;
+}
+.create-book-field{
+    width: 50%;
+    margin-top: 10%;
+    
+}
+.create-book-header{
+    background-color: red;
+}
+
+
